@@ -1,0 +1,42 @@
+<html>
+<body>
+
+	<form id="query-form">
+		Query <input type="text" name="command">
+		<br>Name <input type="hidden" name="name" value="process-test">
+		<input type="submit">
+	</form>
+
+	<div id="stdout">
+	</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+	var socket = io.connect('http://localhost:8080');
+	socket.on('stdout', function (data) {
+		//display information
+		document.getElementById('stdout').innerHTML += '<br>' + data;
+	});
+
+	
+	//send form via ajax	
+	var form = document.getElementById('query-form');
+	form.addEventListener('submit',function(event){
+		event.preventDefault();
+		//get info from form
+		var formData = new FormData(form);
+		var name = formData.get('name');
+		var command = formData.get('command');
+		//send form
+		var xhr = new XMLHttpRequest();
+		console.log(name);
+		xhr.open('GET','http://localhost:8080/spawn' + '?name='+name+'&command='+command,true);
+		xhr.send();
+	});
+
+
+
+</script>
+</body>
+
+</html>
