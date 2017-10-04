@@ -1,0 +1,34 @@
+{
+  "name": "http-spawner",
+  "version": "0.0.1",
+  "description": "NodeJS endpoint which is used to spawn a command on a server by using http queries",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdoPi/http-spawner.git"
+  },
+  "keywords": [
+    "process",
+    "child",
+    "spawn",
+    "spawner",
+    "http",
+    "endpoint",
+    "query",
+    "fork"
+  ],
+  "author": "Adonis NAJIMI @AdoPi",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/AdoPi/http-spawner/issues"
+  },
+  "homepage": "https://github.com/AdoPi/http-spawner#readme",
+  "dependencies": {
+    "express": "^4.16.1",
+    "superchild": "^0.1.10"
+  }
+}
